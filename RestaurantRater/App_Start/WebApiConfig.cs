@@ -10,6 +10,9 @@ namespace RestaurantRater
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            //allows us to pull out list of restaurants that has a list of ratings associated with them without those ratings bringing in restaurants as well
+
 
             // Web API routes
             config.MapHttpAttributeRoutes();
